@@ -13,9 +13,9 @@ namespace Home_work_5._6
             Console.Write("Введите количество вводимых чисел: ");
             int M = Convert.ToInt32(Console.ReadLine());
             int[] array = new int[M];
-            int count = 0;
+            int count = 0, aboveZero = 0;
             FillArray(array);
-            Console.WriteLine($"[{String.Join(";", array)}]");  // Проверка заполненности массива
+            Console.WriteLine($"В массиве [{String.Join("; ", array)}] элементов являющихся > 0 - {AboveZero(array)}");
 
             void FillArray(int[] arrayInFunction)  // Функция ввода элементов в массив с помощью рекурсивного метода
             {
@@ -27,6 +27,18 @@ namespace Home_work_5._6
                     FillArray(arrayInFunction);
                 }
                 count = 0;
+            }
+
+            int AboveZero(int[] arrayInFunction)
+            {
+                if (count < arrayInFunction.Length) // условие выхода из рекурсии
+                {
+                    if (arrayInFunction[count] > 0)
+                        aboveZero++;
+                    count++;
+                    AboveZero(array);
+                }
+                return (aboveZero);
             }
         }
     }
