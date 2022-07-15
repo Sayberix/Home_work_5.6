@@ -34,7 +34,7 @@ namespace Home_work_5._6
             x = FindX(b, k);
             y = FindY(b, k, x);
 
-            Console.WriteLine($"Точка пересечения заданных двух прямых по заданным координатам - X = {x}; Y = {y}");
+            Console.WriteLine($"Точка пересечения двух прямых по заданным координатам - X = {x}; Y = {y}");
 
             double FindX(double [] b, double[] k)                         // Поиск X
             {
