@@ -23,7 +23,7 @@ namespace Home_work_5._6
             Console.Write("Введите значение k2: ");
             k2 = Convert.ToInt32(Console.ReadLine());
 
-            if (k1 == k2)        // Проверка, не является ли заданные координаты - одинаковыми или параллельными отрезками
+            if (k1 == k2)        // Проверка, не является ли заданные координаты - одинаковыми или параллельными прямыми
             {
                 Console.WriteLine("Заданные координаты являются двумя параллельными прямыми или совпадают! Программа завершает работу!");
                 return;
@@ -34,13 +34,13 @@ namespace Home_work_5._6
 
             Console.WriteLine($"Точка пересечения заданных двух прямых по заданным координатам - X = {x}; Y = {y}");
 
-            double FindX(double b1, double b2, double k1, double k2)
+            double FindX(double b1, double b2, double k1, double k2)    // Поиск X
             {
                 double x = (-b2 + b1) / (-k1 + k2);
                 return (x);
             }
 
-            double FindY(double b2, double k2, double x)
+            double FindY(double b2, double k2, double x)                // Поиск Y
             {
                 double y = k2 * x + b2;
                 return (y);
