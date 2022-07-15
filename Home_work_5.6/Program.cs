@@ -13,36 +13,38 @@ namespace Home_work_5._6
             // b1 = 2, k1 = 5,
             // b2 = 4, k2 = 9   -> (-0,5; -0,5)
 
-            double b1 = 0.0, b2 = 0.0, k1 = 0.0, k2 = 0.0, x = 0.0, y = 0.0;
+            double[] b = new double[2];
+            double[] k = new double[2];
+            double x = 0.0, y = 0.0;
             Console.Write("Введите значение b1: ");
-            b1 = Convert.ToInt32(Console.ReadLine());
+            b[0] = Convert.ToInt32(Console.ReadLine());
             Console.Write("Введите значение b2: ");
-            b2 = Convert.ToInt32(Console.ReadLine());
+            b[1] = Convert.ToInt32(Console.ReadLine());
             Console.Write("Введите значение k1: ");
-            k1 = Convert.ToInt32(Console.ReadLine());
+            k[0] = Convert.ToInt32(Console.ReadLine());
             Console.Write("Введите значение k2: ");
-            k2 = Convert.ToInt32(Console.ReadLine());
+            k[1] = Convert.ToInt32(Console.ReadLine());
 
-            if (k1 == k2)        // Проверка, не является ли заданные координаты - одинаковыми или параллельными прямыми
+            if (k[0] == k[1])        // Проверка, не является ли заданные координаты - одинаковыми или параллельными прямыми
             {
                 Console.WriteLine("Заданные координаты являются двумя параллельными прямыми или совпадают! Программа завершает работу!");
                 return;
             }
 
-            x = FindX(b1, b2, k1, k2);
-            y = FindY(b2, k2, x);
+            x = FindX(b, k);
+            y = FindY(b, k, x);
 
             Console.WriteLine($"Точка пересечения заданных двух прямых по заданным координатам - X = {x}; Y = {y}");
 
-            double FindX(double b1, double b2, double k1, double k2)    // Поиск X
+            double FindX(double [] b, double[] k)    // Поиск X
             {
-                double x = (-b2 + b1) / (-k1 + k2);
+                double x = (-b[1] + b[0]) / (-k[0] + k[1]);
                 return (x);
             }
 
-            double FindY(double b2, double k2, double x)                // Поиск Y
+            double FindY(double[] b, double[] k, double x)                // Поиск Y
             {
-                double y = k2 * x + b2;
+                double y = k[1] * x + b[1];
                 return (y);
             }
         }
